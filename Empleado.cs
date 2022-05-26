@@ -39,16 +39,16 @@ namespace ejercicio2{
         private cargos Cargo { get => cargo; set => cargo = value; }
 
 
-        public Empleado()
+        public Empleado(string nombreEmpleado, string apellidoEmpleado, DateTime fechaNacimientoEmpleado, char EstadoCivilEmpleado, char generoEmpleado, DateTime fechaIngresoEmpleado, Double sueldoBasicoEmpleado, cargos cargoEmpleado)
         {   
-            Nombre = "";
-            Apellido = "";
-            FechaNacimiento = 1 1 1;
-            EstadoCivil = ' ';
-            Genero = ' ';
-            FechaIngreso = ;
-            SueldoBasico = 0;
-            Cargo = 0;
+            Nombre = nombreEmpleado;
+            Apellido = apellidoEmpleado;
+            FechaNacimiento = fechaNacimientoEmpleado;
+            EstadoCivil = EstadoCivilEmpleado;
+            Genero = generoEmpleado;
+            FechaIngreso = fechaIngresoEmpleado;
+            SueldoBasico = sueldoBasicoEmpleado;
+            Cargo = cargoEmpleado;
         }
 
 
@@ -60,8 +60,6 @@ namespace ejercicio2{
         }
 
 
-
-        public void mostrarInfoEmpleados()
 
     }
 }
