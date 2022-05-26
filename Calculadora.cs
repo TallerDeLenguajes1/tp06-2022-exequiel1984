@@ -29,6 +29,10 @@ namespace punto1{
             
             Resultado /= termino;
         }
+
+        public int Limpiar(){
+            return 0;
+        }
     }
 }
 

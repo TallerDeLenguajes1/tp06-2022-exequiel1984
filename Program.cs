@@ -15,27 +15,27 @@ using punto1;
         switch (aux)
         {
             case 1: 
-                Console.WriteLine("Ingrese el numero a sumar:");
+                Console.WriteLine("Ingrese el numero a sumar a " + calculadora.Resultado);
                 termino = Convert.ToDouble(Console.ReadLine());
                 calculadora.Sumar(termino);
                 Console.WriteLine("El resultado de la suma es: " + calculadora.Resultado);
                 break;
             case 2: 
-                Console.WriteLine("Ingrese el numero a restar:");
+                Console.WriteLine("Ingrese el numero a restar a " + calculadora.Resultado);
                 termino = Convert.ToDouble(Console.ReadLine());
                 calculadora.Restar(termino);
                 Console.WriteLine("El resultado de la resta es: " + calculadora.Resultado);
 
                 break;
             case 3: 
-                Console.WriteLine("Ingrese el numero a multiplicar:");
+                Console.WriteLine("Ingrese el numero a multiplicar a" + calculadora.Resultado);
                 termino = Convert.ToDouble(Console.ReadLine());
                 calculadora.Multiplicar(termino);
                 Console.WriteLine("El resultado de la multiplicacion es: " + calculadora.Resultado);
 
                 break;
             case 4: 
-                Console.WriteLine("Ingrese el numero a dividir:");
+                Console.WriteLine("Ingrese el numero a dividir a " + calculadora.Resultado);
                 termino = Convert.ToDouble(Console.ReadLine());
                 if (termino == 0)
                 {
@@ -48,7 +48,7 @@ using punto1;
                     break;
                 }
             case 5:
-                aux = 0;
+                aux = calculadora.Limpiar();
                 break;
         }
     }
