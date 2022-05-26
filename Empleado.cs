@@ -32,17 +32,17 @@ namespace ejercicio2{
 
         public double SueldoBasico { get => sueldoBasico; set => sueldoBasico = value; }
 
-        enum cargos{Auxiliar,Administrativo,Ingeniero,Especialista,Investigador}    
+        public enum cargos{Auxiliar,Administrativo,Ingeniero,Especialista,Investigador}    
 
         private cargos cargo;
 
-        private cargos Cargo { get => cargo; set => cargo = value; }
+        public cargos Cargo { get => cargo; set => cargo = value; }
 
 
         public Empleado(string nombreEmpleado, string apellidoEmpleado, DateTime fechaNacimientoEmpleado, char EstadoCivilEmpleado, char generoEmpleado, DateTime fechaIngresoEmpleado, Double sueldoBasicoEmpleado, cargos cargoEmpleado)
         {   
-            Nombre = nombreEmpleado;
-            Apellido = apellidoEmpleado;
+            if(!string.IsNullOrEmpty(nombreEmpleado)) nombre = nombreEmpleado; else nombre = "";
+            if(!string.IsNullOrEmpty(apellidoEmpleado)) apellido = apellidoEmpleado; else apellido = "";
             FechaNacimiento = fechaNacimientoEmpleado;
             EstadoCivil = EstadoCivilEmpleado;
             Genero = generoEmpleado;
@@ -59,7 +59,18 @@ namespace ejercicio2{
             return antiguedad;      
         }
 
-
+        public void mostrarInfoEmpleado(Empleado trabajador){
+            Console.WriteLine(trabajador.Nombre);
+            Console.WriteLine(trabajador.Apellido);
+            Console.WriteLine("Fecha de nacimiento: " + trabajador.FechaNacimiento.ToShortDateString());
+            Console.WriteLine("Estado civil: " + trabajador.EstadoCivil);
+            System.Console.WriteLine("Genero: " + trabajador.Genero);
+            System.Console.WriteLine("Fecha de Ingreso: " + trabajador.FechaIngreso.ToShortDateString());
+            System.Console.WriteLine("Sueldo Basico: $ " + trabajador.SueldoBasico);
+            System.Console.WriteLine(trabajador.Cargo);
+            int antiguedad = calcularAntiguedad(trabajador.FechaIngreso);
+            System.Console.WriteLine("Antiguedad: " + antiguedad);
+        }
 
     }
 }
