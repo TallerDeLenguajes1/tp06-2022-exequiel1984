@@ -49,17 +49,64 @@ namespace ejercicio2{
             return antiguedad;      
         }
 
-        public void mostrarInfoEmpleado(Empleado trabajador){
-            Console.WriteLine(trabajador.Nombre);
-            Console.WriteLine(trabajador.Apellido);
-            Console.WriteLine("Fecha de nacimiento: " + trabajador.FechaNacimiento.ToShortDateString());
-            Console.WriteLine("Estado civil: " + trabajador.EstadoCivil);
-            Console.WriteLine("Genero: " + trabajador.Genero);
-            Console.WriteLine("Fecha de Ingreso: " + trabajador.FechaIngreso.ToShortDateString());
-            Console.WriteLine("Sueldo Basico: $ " + trabajador.SueldoBasico);
-            Console.WriteLine(trabajador.Cargo);
-            int antiguedad = calcularAntiguedad(trabajador.FechaIngreso);
+        public int calcularEdad(DateTime FechaNacimiento){
+
+            int edad = DateTime.Now.Year - FechaNacimiento.Year;
+
+            return edad;      
+        }
+
+        public int calcularAniosParaJubilarse( char genero, int edad){
+
+            int aniosParaJubilarse;
+
+            if (genero == 'H')
+            {
+                aniosParaJubilarse = 65 - edad;
+            }else{
+                aniosParaJubilarse = 60 - edad;
+            }
+            return aniosParaJubilarse;      
+        }
+
+        public double calcularSalario(double sueldoBasico, int antiguedad, Cargos cargo, char estadoCivil){
+            double adicional;
+            if (antiguedad <= 20)
+            {
+                adicional = sueldoBasico * antiguedad / 100;
+                
+            }else{
+                adicional = sueldoBasico * 0.25;
+            }
+
+            if (cargo == Cargos.Especialista || cargo == Cargos.Ingeniero)
+            {
+                adicional *= 1.5;
+            }
+
+            if (estadoCivil == 'C')
+            {
+                adicional += 15000;
+            }
+
+            double salario = sueldoBasico + adicional;
+            return salario;
+        }
+
+        public void mostrarInfoEmpleado(int antiguedad, int edad, int aniosParaJubilarse, double salario){
+            Console.WriteLine("");
+            Console.WriteLine(Apellido + " " + Nombre);
+            Console.WriteLine("Fecha de nacimiento: " + FechaNacimiento.ToShortDateString());
+            Console.WriteLine("Estado civil: " + EstadoCivil);
+            Console.WriteLine("Genero: " + Genero);
+            Console.WriteLine("Fecha de Ingreso: " + FechaIngreso.ToShortDateString());
+            Console.WriteLine("Sueldo Basico: $ " + SueldoBasico);
+            Console.WriteLine(Cargo);
             Console.WriteLine("Antiguedad: " + antiguedad);
+            Console.WriteLine("Edad: " + edad);
+            Console.WriteLine("Cantidad de años para jubilarse: " + aniosParaJubilarse);
+            Console.WriteLine("Salario: $ " + salario);
+            Console.WriteLine("");
         }
 
     }
