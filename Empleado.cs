@@ -5,41 +5,32 @@ namespace ejercicio2{
     public class Empleado {
 
         private string nombre;
-
-        public string Nombre { get => nombre; set => nombre = value; }
-
         private string apellido;        
+        private DateTime fechaNacimiento;
+        private char estadoCivil;
+        private char genero;
+        private DateTime fechaIngreso;
+        private Double sueldoBasico;
+        public string Nombre { get => nombre; set => nombre = value; }
 
         public string Apellido { get => apellido; set => apellido = value; }
 
-        private DateTime fechaNacimiento;
-
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-
-        private char estadoCivil;
 
         public char EstadoCivil { get => estadoCivil; set => estadoCivil = value; }
 
-        private char genero;
-
         public char Genero { get => genero; set => genero = value; }
-
-        private DateTime fechaIngreso;
 
         public DateTime FechaIngreso { get => fechaIngreso; set => fechaIngreso = value; }
 
-        private Double sueldoBasico;
-
         public double SueldoBasico { get => sueldoBasico; set => sueldoBasico = value; }
+        public Cargos Cargo { get => cargo; set => cargo = value; }
 
-        public enum cargos{Auxiliar,Administrativo,Ingeniero,Especialista,Investigador}    
+        public enum Cargos{Auxiliar,Administrativo,Ingeniero,Especialista,Investigador}    
 
-        private cargos cargo;
+        private Cargos cargo;
 
-        public cargos Cargo { get => cargo; set => cargo = value; }
-
-
-        public Empleado(string nombreEmpleado, string apellidoEmpleado, DateTime fechaNacimientoEmpleado, char EstadoCivilEmpleado, char generoEmpleado, DateTime fechaIngresoEmpleado, Double sueldoBasicoEmpleado, cargos cargoEmpleado)
+        public Empleado(string nombreEmpleado, string apellidoEmpleado, DateTime fechaNacimientoEmpleado, char EstadoCivilEmpleado, char generoEmpleado, DateTime fechaIngresoEmpleado, Double sueldoBasicoEmpleado, Cargos cargoEmpleado)
         {   
             if(!string.IsNullOrEmpty(nombreEmpleado)) nombre = nombreEmpleado; else nombre = "";
             if(!string.IsNullOrEmpty(apellidoEmpleado)) apellido = apellidoEmpleado; else apellido = "";
@@ -50,7 +41,6 @@ namespace ejercicio2{
             SueldoBasico = sueldoBasicoEmpleado;
             Cargo = cargoEmpleado;
         }
-
 
         public int calcularAntiguedad(DateTime FechaIngreso){
 
@@ -64,12 +54,12 @@ namespace ejercicio2{
             Console.WriteLine(trabajador.Apellido);
             Console.WriteLine("Fecha de nacimiento: " + trabajador.FechaNacimiento.ToShortDateString());
             Console.WriteLine("Estado civil: " + trabajador.EstadoCivil);
-            System.Console.WriteLine("Genero: " + trabajador.Genero);
-            System.Console.WriteLine("Fecha de Ingreso: " + trabajador.FechaIngreso.ToShortDateString());
-            System.Console.WriteLine("Sueldo Basico: $ " + trabajador.SueldoBasico);
-            System.Console.WriteLine(trabajador.Cargo);
+            Console.WriteLine("Genero: " + trabajador.Genero);
+            Console.WriteLine("Fecha de Ingreso: " + trabajador.FechaIngreso.ToShortDateString());
+            Console.WriteLine("Sueldo Basico: $ " + trabajador.SueldoBasico);
+            Console.WriteLine(trabajador.Cargo);
             int antiguedad = calcularAntiguedad(trabajador.FechaIngreso);
-            System.Console.WriteLine("Antiguedad: " + antiguedad);
+            Console.WriteLine("Antiguedad: " + antiguedad);
         }
 
     }
